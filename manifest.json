@@ -1,0 +1,26 @@
+{
+  "name": "Easy screen share (by Emeka)",
+  "description": "Share you screen with your colleagues in one click!",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/monitor.png",
+    "32": "images/monitor.png",
+    "48": "images/monitor.png",
+    "128": "images/monitor.png"
+  },
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "Share this tab!",
+    "default_icon": "images/monitor.png"
+    /*"default_popup": "popup.html"*/
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "http://*/*"
+  ]
+}
