@@ -9,9 +9,7 @@ var VIEWER_TAB_ID = null;
 chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 100]});
 
 function captureAndSendTab() {
-  // Update to webp when crbug.com/112957 is fixed.
-  // captureVisibleTab only returns a dataURL. Need to decode it and create a
-  // typed array.
+  // captureVisibleTab only returns a dataURL. Need to convert it to a blob myself
   var opts = {
     format: IMG_FORMAT,
     quality: IMG_QUALITY
@@ -35,12 +33,12 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
     chrome.browserAction.setBadgeText({text: 'ON'});
 
-    // Rate limit how much we're sending through the websocket.
+    // Sending the blob every 250ms.
     intervalId = setInterval(function() {
       if (ws.bufferedAmount == 0) {
         captureAndSendTab();
       }
-    }, SEND_INTERVAL_MS); // TODO: optimize this number
+    }, SEND_INTERVAL_MS); // How do I increase this frame rate?
   } else {
     clearInterval(intervalId);
     chrome.browserAction.setBadgeText({text: ''});

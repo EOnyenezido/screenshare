@@ -17,7 +17,7 @@
   "background": {
     "page": "background.html"
   },
-  "options_page": "options.html",
+  /*"options_page": "options.html",*/
   "permissions": [
     "tabs",
     "<all_urls>",

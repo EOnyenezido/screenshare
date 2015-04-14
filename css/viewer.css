@@ -18,7 +18,7 @@ body > section {
   background: rgba(0,0,0,0.1);
 }
 section:after {
-  content: 'No one is sharing a screen with you :(';
+  content: 'Waiting for a connection...';
   font-size: 30px;
   color: rgba(0,0,0,0.4);
   display: block;
